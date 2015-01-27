@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <form method="post" action="/calc" id="mult">
+    <div>
+	<label for="m1">Matrix 1:</label>
+	<input type="text" id="m1" name="m1" value="" placeholder="1.0 2.0; 3.0 4.0">
+    </div>
+
+    <div>
+	<label for="m2">Matrix 2:</label>
+	<input type="text" id="m2" name="m2" value="" placeholder="1.0 2.0; 3.0 4.0">
+    </div>							  
+
+    <div id="result"></div>
+    <button>Calc!</button>
+  </form>
+{% endblock %}
+
+{% block scripts %}
+  <script type="text/javascript" src="{{ url_for("static", filename="js/calc.js") }}"></script>
+{% endblock %}
