@@ -55,3 +55,4 @@ target/
 
 cython/app
 bytecode/app
+optimized_bytecode/app
