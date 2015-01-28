@@ -11,6 +11,7 @@ all: $(OBJECTS)
 
 %.so: %.c
 	@ $(CC) $(CFLAGS) -o $@ $<
+	@ strip --strip-all $@
 
 clean-py:
 	@ find . ! -name "__init__.py" ! -name "manage.py" -name "*.py" -delete
