@@ -13,6 +13,11 @@ all: $(OBJECTS)
 	@ $(CC) $(CFLAGS) -o $@ $<
 	@ strip --strip-all $@
 
+compress:
+	@ for f in `find . -name "*.so"`; do \
+		upx -9 $$f; \
+	done
+
 clean-py:
 	@ find . ! -name "__init__.py" ! -name "manage.py" -name "*.py" -delete
 	@ find . -name "__init__.so" -o -name "manage.so" -delete
