@@ -1,9 +1,9 @@
 PYTHONLIB := /usr/include/python2.7
 CFLAGS := -shared -pthread -fPIC -fwrapv -O2 -Wall -fno-strict-aliasing -I${PYTHONLIB}
-OBJECTS := $(patsubst %.py,%.so,$(wildcard *.py))
-SUBDIRS := $$(find . -maxdepth 1 ! -path . -type d | tr "\n" " " | sed -e "s/\.\///g")
+PYTHON_FILES := $(shell find . -name "*.py" ! -name "__init__.py" ! -name "manage.py")
+OBJECTS := $(patsubst %.py,%.so,$(PYTHON_FILES))
 
-all: $(OBJECTS) subdirs
+all: $(OBJECTS)
 
 %.c: %.py
 	@ echo "Compiling $<"
@@ -11,11 +11,6 @@ all: $(OBJECTS) subdirs
 
 %.so: %.c
 	@ $(CC) $(CFLAGS) -o $@ $<
-
-subdirs:
-	@ for d in $(SUBDIRS); do \
-		$(MAKE) -C $$d; \
-	done
 
 clean-py:
 	@ find . ! -name "__init__.py" ! -name "manage.py" -name "*.py" -delete
@@ -25,4 +20,4 @@ clean:
 	@ find . -name "*.so" -delete
 
 .DEFAULT: all
-.PHONY: all %.c %.so clean subdirs
+.PHONY: all %.c %.so clean clean-py

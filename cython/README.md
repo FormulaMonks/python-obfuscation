@@ -14,3 +14,7 @@ the ``.py`` files can be removed, leaving just the ``.so``.
 
 **Note**: The ``__init__.py`` files **must** be kept in the tree, otherwise
 	      ``import`` won't work.
+
+## Pros
+
+## Cons
