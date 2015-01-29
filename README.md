@@ -13,6 +13,6 @@ be tried too.
 ## Organization
 
 The target is the project at the [app](app) directory, then each method will
-reside in a directory with a ``setup.sh`` script that will setup and run the
+reside in a directory with a ``Makefile`` that will setup and run the
 particular technique. Also a ``README.md`` should be available in each
 directory explaining the current option, highlighting its pro and cons.

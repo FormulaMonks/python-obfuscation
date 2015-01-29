@@ -18,12 +18,17 @@ compress:
 		upx -9 $$f; \
 	done
 
-clean-py:
+clean-build:
 	@ find . ! -name "__init__.py" ! -name "manage.py" -name "*.py" -delete
 	@ find . -name "__init__.so" -o -name "manage.so" -delete
 
 clean:
-	@ find . -name "*.so" -delete
+	@ rm -rf ./app
+
+run: clean
+	@ cp -R ../app .
+	@ find . -iname "*.py[co]" -delete
+	@ $(MAKE) && $(MAKE) clean-build
 
 .DEFAULT: all
-.PHONY: all %.c %.so clean clean-py
+.PHONY: all %.c %.so clean clean-build compress run
