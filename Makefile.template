@@ -14,4 +14,4 @@ run: clean
 	@ $(MAKE) && $(MAKE) clean-build
 
 .DEFAULT: all
-.PHONY: all clean clean-py run
+.PHONY: all clean clean-build run

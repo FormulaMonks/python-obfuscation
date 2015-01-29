@@ -1,11 +1,16 @@
 all:
 	@ python -m compileall app/
 
-clean-py:
+clean-build:
 	@ find . ! -name "manage.py" -name "*.py" -delete
 
 clean:
-	@ find . -name "*.pyc" -delete
+	@ rm -rf ./app
+
+run: clean
+	@ cp -R ../app .
+	@ find . -iname "*.py[co]" -delete
+	@ $(MAKE) && $(MAKE) clean-build
 
 .DEFAULT: all
-.PHONY: all clean clean-py
+.PHONY: all clean clean-build
