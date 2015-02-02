@@ -56,3 +56,4 @@ target/
 cython/app
 bytecode/app
 optimized_bytecode/app
+import_hook/app
