@@ -54,3 +54,5 @@ docs/_build/
 target/
 
 */app
+custom_interpreter/Python-2.7.9*
+custom_interpreter/scrambled-opcodes.diff
