@@ -16,6 +16,6 @@ keeping the application functionality.
 
 ## Cons
 
-1. Optimized byte-code is easilly converted back to python code,
+1. Optimized byte-code is easily converted back to python code,
    [uncompyle2](https://pypi.python.org/pypi/uncompyle2) does the work to build
    back the ``.py`` files very well.
