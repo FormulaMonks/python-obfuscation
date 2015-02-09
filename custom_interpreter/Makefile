@@ -23,13 +23,15 @@ $(PYTHON_CUSTOM_DIR): $(PYTHON_DIR)
 scramble: $(PYTHON_CUSTOM_DIR)
 	@ python scramble-opcodes.py --python-source=$(PYTHON_CUSTOM_DIR)
 	@ diff -u $(PYTHON_DIR)/Include/opcode.h $(PYTHON_CUSTOM_DIR)/Include/opcode.h \
-		> scrambled-opcodes.diff || true
+		> patches/001_scrambled-opcodes.diff || true
 
-pyenv: scramble
-	@ cat scrambled-opcodes.diff | filterdiff --strip=1 | pyenv install -sp 2.7.9-custom
+patches: scramble
+
+pyenv: patches
+	@ cat patches/*.diff | filterdiff --strip=1 | pyenv install -sp 2.7.9-custom
 	@ pyenv local 2.7.9-custom
 
-run: clean $(PYTHON_CUSTOM_DIR) scramble
+run: clean $(PYTHON_CUSTOM_DIR) patches
 
 .DEFAULT: all
 .PHONY: all clean clean-build run
