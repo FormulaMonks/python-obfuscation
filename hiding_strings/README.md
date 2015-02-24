@@ -13,6 +13,8 @@ using [Cython](http://cython.org/) to compile the application code to Python
 extensions, that way a simple ``strings`` command won't be very useful to
 extract strings in the lib.
 
+This example uses [unparse.py](http://svn.python.org/view/python/trunk/Demo/parser/unparse.py?view=markup).
+
 ## Pros
 
 1. Walking the AST is a very powerful transformation tool, this example just
