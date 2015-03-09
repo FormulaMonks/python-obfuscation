@@ -76,18 +76,18 @@ class Loader(BaseLoader):
 
         file = modinfo[0] or open(filename, 'r')
         src = ''.join(file.readlines())
-        src = self.decrypt_to(src[len(SIGNATURE):])
+        src = self.decrypt(src[len(SIGNATURE):])
 
         module = imp.new_module(name)
         module.__file__ = filename
         module.__path__ = [os.path.dirname(os.path.abspath(file.name))]
         module.__loader__ = self
         sys.modules[name] = module
-        exec(src,  module.__dict__)
+        exec(src, module.__dict__)
         print "encrypted module loaded: {0}".format(name)
         return module
 
-    def decrypt_to(self, input):
+    def decrypt(self, input):
         return AESCypher(SECRET).decrypt(input)
 
 
