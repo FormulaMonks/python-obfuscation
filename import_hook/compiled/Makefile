@@ -20,7 +20,7 @@ clean:
 	@ rm -rf ./app
 
 run: clean
-	@ cp -R ../app .
+	@ cp -R ../../app .
 	@ find . -name "*.py[co]" -delete
 	@ $(MAKE) && $(MAKE) clean-build
 

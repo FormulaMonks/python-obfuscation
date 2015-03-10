@@ -3,7 +3,7 @@ PYTHON_CUSTOM_DIR := $(PYTHON_DIR)-customized
 PYTHON_XZ := Python-2.7.9.tar.xz
 
 all: pyenv
-	@ cp -R ../app .
+	@ cp -R ../../app .
 	@ pip install -r app/requirements.txt
 
 clean:
