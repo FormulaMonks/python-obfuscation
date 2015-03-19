@@ -54,6 +54,7 @@ docs/_build/
 target/
 
 */app
+*/*/app
 custom_interpreter/opcodes/Python-2.7.9*
 custom_interpreter/opcodes/scrambled-opcodes.diff
 # WIP, temp ignore
